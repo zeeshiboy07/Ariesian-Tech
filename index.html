@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Ariesian Tech</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+
+  
+    
+
+
+</head>
+<body>
+    <!-- header section -->
+    <header id="header" class="header">
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="index.html" class="navbar-brand">
+          <img src="img/logo.png" alt="company logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#myNavbar"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item mx-2">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="about.html" class="nav-link">About us</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="products.html" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="singleproduct.html" class="nav-link">Single Product</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="checkout.html" class="nav-link">Checkout</a>
+            </li>
+            
+            <li class="nav-item mx-2">
+              <a href="contact.html" class="nav-link">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-icons d-none d-lg-flex">
+          <!-- single icon -->
+          <div class="navbar-icon mx-2"><i class="fas fa-search"></i></div>
+          <!-- end of single icon -->
+          <!-- single icon -->
+          <a href="checkout.html" class="navbar-icon mx-2 navbar-cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="cart-items">2</div>
+          </a>
+          <!-- end of  single icon -->
+        </div>
+      </nav>
+      <!-- end of navbar -->
+      <div class="banner d-flex align-items-center justify-content-center">
+        <div>
+            <h1 class="text-yellow text-capitalize mb-0 company-name" style="color: rgb(255, 255, 255); font-size: 3.0em; font-weight: bold; font-family: 'Arial', sans-serif">
+               Welcome to  Ariesian Tech
+            </h1>
+        </div>
+    </div>
+    
+    </header>
+    <!-- end of header section -->
+    <div class="section-content">
+      <div class="stats">
+          <div class="stat">
+              <h2 class="count" data-target="10000">0</h2>
+              <p>Happy Riders
+               </p>
+          </div>
+          <div class="stat">
+              <h2 class="count" data-target="500">0</h2>
+              <p>
+                Helmets Distributed
+                </p>
+          </div>
+          <div class="stat">
+              <h2 class="count" data-target="50000">0</h2>
+              <p>
+                Customer Feedback</p>
+          </div>
+      </div>
+  </div>
+  
+  <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const counters = document.querySelectorAll('.count');
+          const speed = 200; // Adjust this value to control the speed of the counting
+  
+          const updateCount = (counter) => {
+              const target = +counter.getAttribute('data-target');
+              const count = +counter.innerText;
+              const increment = target / speed;
+  
+              if (count < target) {
+                  counter.innerText = Math.ceil(count + increment);
+                  setTimeout(() => updateCount(counter), 10);
+              } else {
+                  if (target === 10000) {
+                      counter.innerText = "10K";
+                  } else if (target === 500) {
+                      counter.innerText = "500+";
+                  } else if (target === 50000) {
+                      counter.innerText = "50K";
+                  } else {
+                      counter.innerText = target;
+                  }
+              }
+          };
+  
+          const handleIntersection = (entries, observer) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.innerText = '0'; // Reset the counter to 0 each time
+                      updateCount(entry.target);
+                  }
+              });
+          };
+  
+          const observer = new IntersectionObserver(handleIntersection, {
+              threshold: 0.5 // Adjust this value to control when the counting starts (0.5 means 50% of the element is visible)
+          });
+  
+          counters.forEach(counter => {
+              observer.observe(counter);
+          });
+      });
+  </script>
+  
+    <!-- services section -->
+    <section id="services" class="services py-5 text-center">
+      <div class="container">
+        <div class="row">
+          <!-- single service --> 
+          <div class="col-10 mx-auto col-md-6 col-lg-4 my-3">
+            <span class="service-icon">
+              <i class="fas fa-parachute-box"></i>
+            </span>
+            <h5 class="text-uppercase font-weight-bold">
+              free shipping
+            </h5>
+            <p class="text-muted text-capitalize">
+              free shipping on all order over 100.00
+            </p>
+          </div>
+          <!-- end of single service -->
+          <!-- single service --> 
+          <div class="col-10 mx-auto col-md-6 col-lg-4 my-3">
+            <span class="service-icon">
+              <i class="fas fa-phone-volume"></i>
+            </span>
+            <h5 class="text-uppercase font-weight-bold">
+              ONLINE SUPPORT 24/7
+            </h5>
+            <p class="text-muted text-capitalize">
+              We Will Assist You With Your Inquiries
+            </p>
+          </div>
+          <!-- end of single service -->
+          <!-- single service --> 
+          <div class="col-10 mx-auto col-md-6 col-lg-4 my-3">
+            <span class="service-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </span>
+            <h5 class="text-uppercase font-weight-bold">
+              MONEY BACK GURANTEE
+            </h5>
+            <p class="text-muted text-capitalize">
+              Free 100% Refund For 30 Days
+            </p>
+          </div>
+          <!-- end of single service -->
+        </div>
+      </div>
+    </section>
+    <!-- end of services section -->
+
+    <!-- home categories -->
+    <section id="home-categories" class="home-categories py-5">
+      <div class="container">
+        <div class="row">
+          <!-- categories title -->
+          <div class="col-10 mx-auto col-md-6 col-lg-3 align-self-center">
+            <h5 class="text-uppercase">
+              product categories
+            </h5>
+            <p class="text-muted text-capitalize">
+          
+Helmets provide essential protection for various activities. Motorcycle helmets include full-face, open-face, modular, off-road, and dual-sport types. Bicycle helmets range from road and mountain bike to commuter and kids' helmets. 
+            </p>
+            
+            <div class="categorie-underline">
+            </div>
+          </div>
+          <!-- end of categories title -->
+          <!-- main categories -->
+          <div class="col-10 mx-auto col-md-6 col-lg-9 my-3">
+            <div class="row">
+              <!-- single category -->
+              <div class="col-md-6 col-lg-3 my-3">
+                <div class="category-container">
+                  <img src="img/cagetogoryImg/category  (1).jpeg" class="img-fluid category-img" alt="">
+                  <a href="products.html" class="category-link">
+                    <h6 class="text-uppercase mb-0">
+                      Full Face Helmet
+                    </h6>
+                    <p class="text-yellow mb-0">
+                      50 items
+                    </p>
+                  </a>
+                </div>
+              </div>
+              <!-- end of single category -->
+              <!-- single category -->
+              <div class="col-md-6 col-lg-3 my-3">
+                <div class="category-container">
+                  <img src="img/cagetogoryImg/category  (2).jpeg" class="img-fluid category-img" alt="">
+                  <a href="products.html" class="category-link">
+                    <h6 class="text-uppercase mb-0">
+                      Modular Helmet
+                    </h6>
+                    <p class="text-yellow mb-0">
+                      20 items
+                    </p>
+                  </a>
+                </div>
+              </div>
+              <!-- end of single category -->
+              <!-- single category -->
+              <div class="col-md-6 col-lg-3 my-3">
+                <div class="category-container">
+                  <img src="img/cagetogoryImg/category  (3).jpeg" class="img-fluid category-img" alt="">
+                  <a href="products.html" class="category-link">
+                    <h6 class="text-uppercase mb-0">
+                      Half Face Helmet
+                    </h6>
+                    <p class="text-yellow mb-0">
+                      25 items
+                    </p>
+                  </a>
+                </div>
+              </div>
+              <!-- end of single category -->
+              <!-- single category -->
+              <div class="col-md-6 col-lg-3 my-3">
+                <div class="category-container">
+                  <img src="img/cagetogoryImg/category  (4).jpeg" class="img-fluid category-img" alt="">
+                  <a href="products.html" class="category-link">
+                    <h6 class="text-uppercase mb-0">
+                      Open Face Helmet
+                    </h6>
+                    <p class="text-yellow mb-0">
+                      10 items
+                    </p>
+                  </a>
+                </div>
+              </div>
+              <!-- end of single category -->
+            </div>
+          </div>
+          <!-- end of main categories -->
+        </div>
+      </div>
+    </section>
+    <!-- end of home categories -->
+
+    <!-- home filler -->
+    <section id="home-filler">
+      <div class="container-fluid">
+        <div class="row home-filler align-items-center">
+          <div class="col-10 mx-auto text-center text-white">
+            <h4 class="text-uppercase font-weight-bold">
+              Smart Helmets collection
+            </h4>
+            <p class="text-capitalize">
+              Discover our smart helmets collection, blending cutting-edge technology with superior safety features.
+            </p>
+            <a href="checkout.html" class="text-capitalize collection-link text-yellow">
+              view collection
+            </a>
+            <div class="collection-underline"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of home filler -->
+
+    <!-- featured section -->
+    <section id="featured" class="featured py-5">
+      <div class="container">
+        <div class="row my-3">
+          <div class="col-10 mx-auto text-center">
+            <h1 class="text-uppercase">
+              featured products
+            </h1>
+            <p class="text-muted">
+        Safety featured products
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <!-- single product -->
+          <div class="col-10 mx-auto col-md-6 col-lg-4">
+            <div class="featured-container p-5">
+              <img src="img/img-products/product-1.png" alt="" class="img-fluid">
+              <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
+                <i class="fas fa-search"></i>
+              </span>
+              <a href="#" class="featured-store-link text-capitalize">add to cart</a>
+            </div>
+            <h6 class="text-capitalize text-center my-2">
+ Eco Shield Helmet
+            </h6>
+            <h6 class="text-center">
+              <span class="text-muted old-price mx-2">$200</span>
+              <span>$100</span>
+            </h6>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="col-10 mx-auto col-md-6 col-lg-4">
+            <div class="featured-container p-5">
+              <img src="img/img-products/product-6.png" alt="" class="img-fluid">
+              <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
+                <i class="fas fa-search"></i>
+              </span>
+              <a href="#" class="featured-store-link text-capitalize">add to cart</a>
+            </div>
+            <h6 class="text-capitalize text-center my-2">
+               Eco Shield Helmet
+            </h6>
+            <h6 class="text-center">
+              <span class="text-muted old-price mx-2">$200</span>
+              <span>$100</span>
+            </h6>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="col-10 mx-auto col-md-6 col-lg-4">
+            <div class="featured-container p-5">
+              <img src="img/img-products/product-2.png" alt="" class="img-fluid">
+              <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
+                <i class="fas fa-search"></i>
+              </span>
+              <a href="#" class="featured-store-link text-capitalize">add to cart</a>
+            </div>
+            <h6 class="text-capitalize text-center my-2">
+               Eco Shield Helmet
+            </h6>
+            <h6 class="text-center">
+              <span class="text-muted old-price mx-2">$200</span>
+              <span>$100</span>
+            </h6>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="col-10 mx-auto col-md-6 col-lg-4">
+            <div class="featured-container p-5">
+              <img src="img/img-products/product-3.png" alt="" class="img-fluid">
+              <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
+                <i class="fas fa-search"></i>
+              </span>
+              <a href="#" class="featured-store-link text-capitalize">add to cart</a>
+            </div>
+            <h6 class="text-capitalize text-center my-2">
+               Eco Shield Helmet
+            </h6>
+            <h6 class="text-center">
+              <span class="text-muted old-price mx-2">$200</span>
+              <span>$100</span>
+            </h6>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="col-10 mx-auto col-md-6 col-lg-4">
+            <div class="featured-container p-5">
+              <img src="img/img-products/product-4.png" alt="" class="img-fluid">
+              <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
+                <i class="fas fa-search"></i>
+              </span>
+              <a href="#" class="featured-store-link text-capitalize">add to cart</a>
+            </div>
+            <h6 class="text-capitalize text-center my-2">
+               Eco Shield Helmet
+            </h6>
+            <h6 class="text-center">
+              <span class="text-muted old-price mx-2">$200</span>
+              <span>$100</span>
+            </h6>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="col-10 mx-auto col-md-6 col-lg-4">
+            <div class="featured-container p-5">
+              <img src="img/img-products/product-5.png" alt="" class="img-fluid">
+              <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
+                <i class="fas fa-search"></i>
+              </span>
+              <a href="#" class="featured-store-link text-capitalize">add to cart</a>
+            </div>
+            <h6 class="text-capitalize text-center my-2">
+               Eco Shield Helmet
+            </h6>
+            <h6 class="text-center">
+              <span class="text-muted old-price mx-2">$200</span>
+              <span>$100</span>
+            </h6>
+          </div>
+          <!-- end of single product -->
+        </div>
+      </div>
+    </section>
+    <!-- end of featured section -->
+
+    <!-- partners -->
+    <section class="partners py-5">
+      <div class="container">
+        <div class="row">
+          <!-- compnay carousel -->
+          <div class="col-6 col-md-6 col-lg-4 mx-auto">
+            <div
+              id="partnerCarousel"
+              class="carousel slide "
+              data-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <!-- single item -->
+                <div class="carousel-item active">
+                  <img
+                    src="img/company-logos/company-logo-1.png"
+                    class="d-block w-100"
+                    alt="partner company"
+                  />
+                </div>
+                <!-- end single item -->
+                <!-- single item -->
+                <div class="carousel-item ">
+                  <img
+                    src="img/company-logos/company-logo-2.png"
+                    class="d-block w-100"
+                    alt="partner company"
+                  />
+                </div>
+                <!-- end single item -->
+                <!-- single item -->
+                <div class="carousel-item ">
+                  <img
+                    src="img/company-logos/company-logo-3.png"
+                    class="d-block w-100"
+                    alt="partner company"
+                  />
+                </div>
+                <!-- end single item -->
+                <!-- single item -->
+                <div class="carousel-item ">
+                  <img
+                    src="img/company-logos/company-logo-4.png"
+                    class="d-block w-100"
+                    alt="partner company"
+                  />
+                </div>
+                <!-- end single item -->
+                <!-- single item -->
+                <div class="carousel-item ">
+                  <img
+                    src="img/company-logos/company-logo-5.png"
+                    class="d-block w-100"
+                    alt="partner company"
+                  />
+                </div>
+                <!-- end single item -->
+                <!-- single item -->
+                <div class="carousel-item">
+                  <img
+                    src="img/company-logos/company-logo-6.png"
+                    class="d-block w-100"
+                    alt="partner company"
+                  />
+                </div>
+                <!-- end single item -->
+              </div>
+              <a
+                href="#partnerCarousel"
+                class="carousel-control-prev"
+                role="button"
+                data-slide="prev"
+              >
+                <i class="fas fa-arrow-left"></i>
+              </a>
+              <a
+                href="#partnerCarousel"
+                class="carousel-control-next"
+                role="button"
+                data-slide="next"
+              >
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of  partners -->
+
+  
+    <!-- skills section -->
+    <section id="skills" class="skills py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-10 col-md-6 col-lg-4 mx-auto d-flex my-3">
+            <div class="skill-icon mr-3">
+              <i class="fas fa-truck"></i>
+            </div>
+            <div class="skill-text">
+              <h3 class="text-uppercase text-white">
+                free shipping
+              </h3>
+              <p class="text-capitalize text-muted">
+                Enjoy FREE SHIPPING on all orders, with no minimum purchase required!
+              </p>
+            </div>
+          </div>
+          <div class="col-10 col-md-6 col-lg-4 mx-auto d-flex my-3">
+            <div class="skill-icon mr-3">
+              <i class="fas fa-comment-dollar"></i>
+            </div>
+            <div class="skill-text">
+              <h3 class="text-uppercase text-white">
+                price promise
+              </h3>
+              <p class="text-capitalize text-muted">
+                We guarantee the best prices on our products. If you find a lower price elsewhere, we'll match it!
+              </p>
+            </div>
+          </div>
+          <div class="col-10 col-md-6 col-lg-4 mx-auto d-flex my-3">
+            <div class="skill-icon mr-3">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="skill-text">
+              <h3 class="text-uppercase text-white">
+                lifetime warranty
+              </h3>
+              <p class="text-capitalize text-muted">
+                Enjoy peace of mind with our lifetime warranty, covering your product against defects for as long as you own it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of skills section -->
+
+    <!-- footer section -->
+    <footer class="footer py-5" style="color: aliceblue;">
+      <div class="container">
+        <div class="row">
+          <div class="col-10 mx-auto text-center">
+            <h1 class="text-uppercase font-weight-bold text-yellow d-inline-block footer-title">
+              Ariesian Tech
+            </h1>
+            <!-- footer icons -->
+            <div class="footer-icons d-flex justify-content-center my-5">
+              <!-- single icon -->
+              <a href="" class="footer-icon mx-2">
+                <div class="fab fa-facebook"></div>
+              </a>
+              <!-- end of single icon -->
+              <!-- single icon -->
+              <a href="" class="footer-icon mx-2">
+                <div class="fab fa-twitter"></div>
+              </a>
+              <!-- end of single icon -->
+              <!-- single icon -->
+              <a href="" class="footer-icon mx-2">
+                <div class="fab fa-youtube"></div>
+              </a>
+              <!-- end of single icon -->
+              <!-- single icon -->
+              <a href="" class="footer-icon mx-2">
+                <div class="fab fa-google-plus"></div>
+              </a>
+              <!-- end of single icon -->
+              <!-- single icon -->
+              <a href="" class="footer-icon mx-2">
+                <div class="fab fa-instagram"></div>
+              </a>
+              <!-- end of single icon -->
+            </div>
+            <!-- footer icons -->
+            <p style="color: aliceblue;" class="text-muted text-capitalize w-75 mx-auto text-center" >
+              we are dedicated to providing top-quality helmets designed for safety, comfort, and style. Our extensive range includes advanced protective gear for various activities, ensuring you stay safe while looking great. With a commitment to innovation and durability, our helmets are crafted using cutting-edge technology and premium materials. Trust us to deliver reliable protection and peace of mind for every ride.
+            </p>
+            <div class="footer-contact d-flex justify-content-around mt-5">
+              <!-- single contact -->
+              <div class="text-capitalize">
+                <span class="contact-icon mr-2">
+                  <i class="fas fa-map"></i>
+                </span>
+                Gulberg Green sector D islamabad
+              </div>
+              <!-- end of single contact -->
+              <!-- single contact -->
+              <div class="text-capitalize">
+                <span class="contact-icon mr-2">
+                  <i class="fas fa-phone"></i>
+                </span>
+                Phone : 03175061778
+              </div>
+              <!-- end of single contact -->
+              <!-- single contact -->
+              <div class="text-capitalize">
+                <span class="contact-icon mr-2">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                Email : ariesiantech.official@gmail.com 
+              </div>
+              <!-- end of single contact -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end of footer section -->
+   
+    <!-- end of modal -->
+    <!-- jQuery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- fontwesome js -->
+    <script src="js/all.min.js"></script>
+    <!-- Custom js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
